@@ -11,6 +11,7 @@ import { history } from '@codemirror/commands';
 import { themes } from './theme';
 import classNames from 'classnames';
 import { LanguageName, langs } from './lang';
+import './code.scss';
 
 export interface CodeProps {
   /**
@@ -182,11 +183,11 @@ export class Code extends React.Component<CodeProps> {
         // editable ? EditorView.editable.of(true) : EditorState.readOnly.of(true),
         editable ? EditorView.editable.of(true) : EditorView.editable.of(false),
         EditorView.baseTheme({
-          '.cm-editor': {
+          ...baseStyle,
+          '&': {
             width: typeof width === 'number' ? `${width}px` : width,
             height: typeof height === 'number' ? `${height}px` : height,
           },
-          ...baseStyle,
         }),
         placeholder(placeholderStr),
         lineNumbers({
@@ -200,7 +201,7 @@ export class Code extends React.Component<CodeProps> {
           // 光标闪烁频率，默认1200
           cursorBlinkRate: 1200,
           // 选中时，是否展示光标。默认为 true 展示
-          drawRangeCursor: true,
+          drawRangeCursor: false,
         }),
         EditorState.allowMultipleSelections.of(true),
         gutter({ class: `${this.className}-gutter` }),

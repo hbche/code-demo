@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Code
-        code={''}
+        code={code}
         mode={'json'}
         editable={true}
         lineWrap={false}
@@ -24,8 +24,18 @@ function App() {
         placeholder='请输入代码'
       />
       <Code
-        code={code}
-        mode={'json'}
+        code={`
+declare class StreamLanguage<State> extends Language {
+  private constructor();
+  /**
+  Define a stream language.
+  */
+  static define<State>(spec: StreamParser<State>): StreamLanguage<State>;
+  private getIndent;
+  get allowsNesting(): boolean;
+}
+        `}
+        mode={'javascript'}
         editable={false}
         lineWrap={false}
         theme='light'

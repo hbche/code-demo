@@ -12,6 +12,7 @@ import { themes } from './theme';
 import classNames from 'classnames';
 import { LanguageName, langs } from './lang';
 import './code.scss';
+import customMode from './lang/custom';
 
 export interface CodeProps {
   /**
@@ -172,6 +173,7 @@ export class Code extends React.Component<CodeProps> {
         height = '100%',
         lineWrap,
         mode,
+        customTag,
         placeholder: placeholderStr = '',
         startLine = 1,
         theme,
@@ -207,9 +209,15 @@ export class Code extends React.Component<CodeProps> {
         gutter({ class: `${this.className}-gutter` }),
       ];
 
-      const languageParser = langs[mode as LanguageName];
-      if (languageParser) {
-        extensions.push(languageParser());
+      if (mode === 'custom') {
+        if (customTag) {
+          extensions.push(customMode(customTag));
+        }
+      } else {
+        const languageParser = langs[mode as LanguageName];
+        if (languageParser) {
+          extensions.push(languageParser);
+        }
       }
 
       if (lineWrap) {

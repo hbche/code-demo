@@ -4,6 +4,7 @@ import {
   ViewUpdate,
   drawSelection,
   gutter,
+  keymap,
   lineNumbers,
   placeholder,
 } from '@codemirror/view';
@@ -13,7 +14,7 @@ import {
   Extension,
   StateEffect,
 } from '@codemirror/state';
-import { history } from '@codemirror/commands';
+import { history, historyKeymap } from '@codemirror/commands';
 import { themes } from './theme';
 import classNames from 'classnames';
 import { LanguageName, langs } from './lang';
@@ -199,6 +200,7 @@ export class Code extends React.Component<CodeProps, CodeState> {
           return offsetLine;
         },
       }),
+      keymap.of(historyKeymap),
       drawSelection({
         // 光标闪烁频率，默认1200
         cursorBlinkRate: 1200,

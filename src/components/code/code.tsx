@@ -128,10 +128,10 @@ export class Code extends React.Component<CodeProps, CodeState> {
 
   componentDidMount(): void {
     if (this.containerRef.current) {
-      const { code, ...restProps } = this.props;
+      const { code, autoFormatJson, ...restProps } = this.props;
       const extensions = this.getExtensions(restProps);
       const codeState = EditorState.create({
-        doc: code,
+        doc: autoFormatJson ? code : code,
         extensions,
       });
 
@@ -150,7 +150,6 @@ export class Code extends React.Component<CodeProps, CodeState> {
       const { code, ...restProps } = this.props;
       const { code: prevCode, ...prevRestProps } = prevProps;
       if (prevCode !== code) {
-        console.log(prevCode, code);
         this.state.view?.dispatch({
           changes: {
             from: 0,

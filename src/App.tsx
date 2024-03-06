@@ -1,5 +1,5 @@
 import './App.scss';
-import CodeDemo from './components/code/code.demo';
+import CodeDemo from './components/code/code-demo';
 
 function App() {
   return (

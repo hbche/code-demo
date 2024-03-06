@@ -47,6 +47,15 @@ export const basicLightInit = (
       { tag: t.keyword, color: '#f27000' },
       { tag: [t.string], color: '#ac4cbd' },
       { tag: [t.comment], color: '#1585e0' },
+      {
+        tag: [t.tagName],
+        color: '#170',
+      },
+      {
+        tag: [t.attributeName],
+        color: '#00c',
+      },
+      { tag: [t.meta], color: '#555' },
       // { tag: [t.comment], color: '#434c5e', fontStyle: 'italic' },
       // {
       //   tag: [t.name, t.deleted, t.character, t.propertyName, t.macroName],
@@ -85,20 +94,12 @@ export const basicLightInit = (
       //   color: '#a3be8c',
       // },
       // {
-      //   tag: [t.tagName],
-      //   color: '#b48ead',
-      // },
-      // {
       //   tag: [t.squareBracket],
       //   color: '#bf616a',
       // },
       // {
       //   tag: [t.angleBracket],
       //   color: '#d08770',
-      // },
-      // {
-      //   tag: [t.attributeName],
-      //   color: '#ebcb8b',
       // },
       // {
       //   tag: [t.regexp],
@@ -118,7 +119,6 @@ export const basicLightInit = (
       //   tag: [t.url, t.escape, t.special(t.string)],
       //   color: '#d08770',
       // },
-      // { tag: [t.meta], color: '#88c0d0' },
       // { tag: t.strong, fontWeight: 'bold', color: '#5e81ac' },
       // { tag: t.emphasis, fontStyle: 'italic', color: '#5e81ac' },
       // { tag: t.strikethrough, textDecoration: 'line-through' },

@@ -1,5 +1,69 @@
 .qtc-code {
-  &-container {
-    display: inline-flex;
+  &-editable .cm-editor {
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: #0088ce;
+    }
+
+    // 聚焦时的样式
+    &.cm-focused {
+      outline: none;
+      border-color: #0088ce;
+      box-shadow: 0 0 0 2px #c5e3fc80;
+    }
+  }
+
+  .cm-editor {
+    font-size: 12px;
+    line-height: 20px;
+    border: 1px solid #d1d4d7;
+    border-radius: 4px;
+
+    & .cm-scroller {
+      height: 100% !important;
+    }
+
+    & .cm-selectionBackground {
+      height: 20px;
+    }
+
+    & .cm-cursor {
+      height: 20px;
+    }
+    // 内容区样式
+    & .cm-content {
+      padding: 12px 0;
+    }
+
+    & .cm-content .cm-line {
+      padding: 0 16px;
+      line-height: 20px;
+      min-height: 20px;
+    }
+
+    & .cm-gutters {
+      border: none;
+    }
+    // 行数槽位样式
+    & .cm-lineNumbers {
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    & .cm-lineNumbers .cm-gutterElement {
+      min-width: 40px;
+      padding: 0 12px;
+      line-height: 20px;
+      text-align: right;
+    }
+  }
+
+  .custom-tag {
+    display: none;
+  }
+
+  .custom-content {
+    color: #dd3646;
   }
 }

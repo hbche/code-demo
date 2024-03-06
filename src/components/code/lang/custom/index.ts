@@ -35,7 +35,8 @@ const customLanguage = (customTags: string[]) => {
     }
     return index > -1;
   };
-  return StreamLanguage.define<CustomState>({
+
+  const streamLanguage = StreamLanguage.define<CustomState>({
     name: 'custom',
     startState(): CustomState {
       return {
@@ -84,6 +85,8 @@ const customLanguage = (customTags: string[]) => {
     },
     tokenTable: tokenTable,
   });
+
+  return streamLanguage;
 };
 
 const customHighlighter = syntaxHighlighting(
